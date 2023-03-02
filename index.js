@@ -19,3 +19,20 @@ function fibs(num){
 }
 
 console.log(fibs(8))
+
+
+const fibsRec = (num) => {
+    if (num <= 0) {
+      return [];
+    } else if (num === 1) {
+      return [0];
+    } else if (num === 2) {
+      return [0, 1];
+    } else {
+      const fibo = fibsRec(num - 1);
+      fibo.push(fibo[fibo.length - 1] + fibo[fibo.length - 2]);
+      return fibo;
+    }
+  };
+
+console.log(fibsRec(8))
