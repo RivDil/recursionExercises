@@ -36,3 +36,34 @@ const fibsRec = (num) => {
   };
 
 console.log(fibsRec(8))
+
+function mergeSort(array){
+    if (array.length <= 1){
+        return array;
+    }else{
+        let middle = array[Math.floor((array.length) / 2)];
+        let firstHalf = array.slice(0, array.indexOf(middle));
+        let secondHalf = array.slice(array.indexOf(middle),array[-1]);
+        let finalArr = []
+
+        return merge(mergeSort(firstHalf), mergeSort(secondHalf));
+    }
+}
+
+function merge(left, right) {
+    const result = [];
+
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            result.push(left.shift());
+        } else {
+            result.push(right.shift());
+        }
+    }
+
+    return [...result, ...left, ...right];
+}
+
+
+const array = [5,8,2]
+console.log(mergeSort(array))
