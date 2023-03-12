@@ -44,8 +44,6 @@ function mergeSort(array){
         let middle = array[Math.floor((array.length) / 2)];
         let firstHalf = array.slice(0, array.indexOf(middle));
         let secondHalf = array.slice(array.indexOf(middle),array[-1]);
-        let finalArr = []
-
         return merge(mergeSort(firstHalf), mergeSort(secondHalf));
     }
 }
